@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            background-color: #34495e;
+            padding: 0.5rem 0;
+            overflow-x: auto;
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: inline-block;
+            list-style: none;
+            padding: 0 20px;
+            margin: 0;
+        }
+        
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            font-size: 0.9em;
+        }
+        
+        nav ul li a:hover {
+            background-color: #2c3e50;
+        }
+        
+        nav ul li a.active {
+            background-color: #1abc9c;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+        
+        .main-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-height: 500px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            color: #1abc9c;
+            margin: 1.5rem 0 1rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .placeholder {
+            border: 2px dashed #ccc;
+            padding: 2.45rem;
+            text-align: center;
+            margin: 2rem 0;
+            padding-bottom: 10.5rem;
+            border-radius: 5px;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        
+        .file-link {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f0f8ff;
+            border-left: 4px solid #1abc9c;
+            text-decoration: none;
+            color: #2c3e50;
+            transition: background-color 0.3s;
+        }
+        
+        .file-link:hover {
+            background-color: #e0f0fa;
+        }
+        
+        /* Стили для скрытия/показа вкладок */
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+			        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .header-row {
+            background-color: #e6e6e6;
+        }
+		.section-title {
+            background-color: #e6e6e6;
+            font-weight: bold;
+        }
+        .example {
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .remark {
+            font-style: italic;
+            margin-top: 10px;
+        }
+        .phonetic {
+            font-family: monospace;
+        }
+        .reference-row {
+            border-top: 2px solid #000;
+			 }
+        .signature-line {
+            border-top: 1px solid #000;
+            width: 200px;
+            display: inline-block;
+            margin-top: 50px;
+        }
+        .center {
+            text-align: center;
+        }
+        .budget-notes {
+            font-size: 0.9em;
+            color: #666;
+			 }
+        .page {
+            page-break-after: always;
+            margin-bottom: 50px;
+        }
+        .last-page {
+            page-break-after: auto;
+        }
+		   .task {
+            margin-bottom: 30px;
+        }
+        .task-header {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 15px;
+            padding-left: 30px;
+        }
+        .task-number {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .task-number:after {
+            content: " "; /* Добавляем пробел после номера задания */
+        }
+        .task-items {
+            padding-left: 30px;
+            list-style-type: none;
+            counter-reset: item;
+        }
+        .task-items li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+        }
+        .task-items li:before {
+            content: counter(item) ".";
+            counter-increment: item;
+            position: absolute;
+            left: 0;
+            width: 20px;
+            text-align: right;
+        }
+        .gap {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            color: #0066cc;}
+		ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style-position: inside; /* Маркеры внутри потока текста */
+.tul{font-size: 20px;
+}
+
+			
+        
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <p align="left" style="font-size:30px;">Ivan Zubkov</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#" class="nav-link active" data-tab="title-page">Home</a></li>
+            <li><a href="#" class="nav-link" data-tab="reflective-essay">Reflective Essay</a></li>
+            <li><a href="#" class="nav-link" data-tab="lang-analysis">Language Analysis</a></li>
+            <li><a href="#" class="nav-link" data-tab="course-analyses">Course Analyses</a></li>
+            <li><a href="#" class="nav-link" data-tab="learning-project">Learning Project</a></li>
+            <li><a href="#" class="nav-link" data-tab="extra-event">Extra-curriculum Event</a></li>
+            <li><a href="#" class="nav-link" data-tab="learner-analysis">Learner Analysis</a></li>
+            <li><a href="#" class="nav-link" data-tab="practice-tasks">Practice Tasks</a></li>
+            <li><a href="#" class="nav-link" data-tab="auth-text">Authentic Text</a></li>
+            <li><a href="#" class="nav-link" data-tab="lesson-plan">Lesson Plan</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <!-- Title Page -->
+        <div id="title-page" class="tab-content active">
+            <div class="main-content">
+                <h1>My Portfolio</h1>
+                
+                <img src="My photo.jpg" alt="My photo"
+                 style="width: 200px;
+                        height: 200px;
+                        float: left;
+                        margin-right: 0px;
+                        margin-left: 0px;
+                        margin-top: -px;
+                        margin-bottom:-40px;
+                        background: white;">
+						 
+					<div class="tul">
+	
+                   <p style="margin-left: 240px"> <br><br> On this website you can find information about my portfolio project. Click on the appropriate tab to find information about particular language analysis, lesson plan, extra-curriculum activity and different learning projects. </p>
+					 </div>
+					<img src="Books.jpg" alt="My photo"
+                 style="width: 350px;
+                        height: 200px;
+                        float: left;
+                        margin-right: 50px;
+                        margin-left: 230px;
+                        margin-top: 70px;
+                        margin-bottom:-40px;
+                        background: white;">
+                  
+           </div>
+        </div>
+		</div>
+        
+        <!-- Reflective Essay -->
+        <div id="reflective-essay" class="tab-content">
+            <div class="main-content">
+                <h1>Reflective Essay</h1>
+                <div class="placeholder">
+                    <p>This is where you'll insert your reflective essay</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Language Analysis -->
+        <div id="lang-analysis" class="tab-content">
+            <div class="main-content">
+                <h1>Language, Culture and Intercultural Communication</h1>
+                  <div class="group-members">
+        <p style="margin-bottom: 1.5px">Group 6.5:</p>
+        <p>Selifanova Mariia<br>
+        Struchkova Polina<br>
+        Zubkov Ivan<br>
+        Fedina Irina<br>
+        Kydyrov Asan<br>
+        Iapryntseva Eseniia</p>
+    </div>
+
+    <h1 style="margin-bottom: 1.5px">Text</h1>
+    
+    <div class="interview">
+        <p><em>Interviewer:</em> What is the secret of your health and well-being?</p>
+        <p><em>Celebrity 1:</em> Sauerkraut.</p>
+        <p><em>Celebrity 2:</em> Definitely sauerkraut.</p>
+        <p><em>Celebrity 3:</em> Sauerkraut.</p>
+    </div>
+    
+    <div class="narrator">
+        <p><em>Text+Narrator:</em> Discover the secret ingredient celebrities are raving about:</p>
+        <p>Fermented Cabbage aka <strong>SAUERKRAUT</strong></p>
+        
+        <p><em>Narrator only:</em> Who said it's one apple a day that keeps the doctor away? Rich both in taste and vitamins, sauerkraut will become an essential part of your diet. It is full of vitamins A, B, C and necessary microelements. It was proven by scientific research that eating only 100 grams of sauerkraut a day can provide you with a daily supply of vitamins! Always wanted a Hollywood smile? With Sauerkraut's power to improve your gums and teeth you no longer have to be a film star. On top of that, one serving contains 3 grams of fiber that enhances weight loss and digestion.</p>
+        
+        <p>Sauerkraut fills you with energy and improves your mood so there is no chance you miss out on work or doing things you enjoy. Think of all the times you couldn't excel at work or relish your favorite activities because you felt worn out or stressed. You won't ever experience that again as long as sauerkraut is included in your diet.</p>
+        
+        <p>At home. At work. At your next barbie or a picnic. You can never go wrong with sauerkraut. Enjoy it in summer and winter, whether you're sunbathing on the beach or skiing down a mountain slope.</p>
+        
+        <p>No need to worry about what to serve when you're having guests around. No need to start preparing food hours in advance. Spend more time with your beloved ones leaving all the cooking problems behind with all prepared sauerkraut.</p>
+        
+        <p>And just listen to the crunch! Like music to your ears.</p>
+        
+        <p>Healthy, Crunchy, and Sooo Delicious: Try Our Handcrafted Sauerkraut Today!</p>
+    </div>
+
+    <h1>Analysis</h1>
+    
+    <h2 style="margin-bottom: 1.5px">1. The main audience</h2>
+    <ol style="margin-top: 0; padding-left: 20px;">
+        <li><strong>People who care about their health:</strong> sauerkraut is a fermented product that contains probiotics and is often associated with digestive benefits. Thus, people who prefer a healthy lifestyle and are interested in gut health can become a key target.</li>
+        <li><strong>Gourmets and culinary enthusiasts:</strong> those who like to experiment with different flavors and cuisines may be interested in sauerkraut as a versatile and unique ingredient in various dishes.</li>
+        <li><strong>Those who are interested in traditional or international cuisine:</strong> sauerkraut is a traditional dish of many European cuisines, especially German and Eastern European. People interested in authentic or international dishes may like sauerkraut.</li>
+        <li><strong>Vegans and vegetarians:</strong> sauerkraut is often prepared on a plant-based basis and it can be a suitable addition to a vegetarian diet.</li>
+        <li><strong>Consumers who need natural and fermented foods:</strong> due to the growing popularity of fermented foods due to their potential health benefits, advertisements for sauerkraut may be targeted at consumers who are looking for natural, minimally processed and fermented foods.</li>
+        <li><strong>People who are looking for low-calorie, low-fat meals:</strong> sauerkraut tends to be low in calories and fat, which makes it attractive to people who monitor their calorie and fat intake.</li>
+    </ol>
+    
+    <h2>2. The register</h2>
+    <p style="margin-bottom: 1.5px"><strong>Informal.</strong></p>
+    <ul class="features" style="margin-top: 0; padding-left: 20px;">
+        <li><strong>Field:</strong> in our sauerkraut advertisement, the field is "food and culinary products", with an emphasis on promoting sauerkraut.</li>
+        <li><strong>Tenor</strong> includes the relationship between the advertiser (the one who promotes sauerkraut) and the target audience. It influences the language and tone used in advertising, aimed at persuading and engaging the potential consumers.</li>
+        <li><strong>Mode:</strong> spoken, remote (a pre-recorded video) and synchronous.</li>
+    </ul>
+    <p>The language used in the advertisement reflects the characteristics of the food industry with an emphasis on persuading and convincing the audience to consider sauerkraut as a desirable and healthy product. The tone emphasizes the health benefits, culinary versatility and cultural authenticity.</p>
+    
+    <h2>3. Genre features</h2>
+    <p>The <strong>genre</strong> of the text is a persuasive <span class="underline">advertisement</span>.</p>
+    <p><strong>Layout</strong>: the text is structured as a conversation between an interviewer and celebrities, followed by a narrator providing information about the product.</p>
+    
+    <p style="margin-bottom: 1.5px"><strong>Content:</strong></p>
+    <ul style="margin-top: 0; padding-left: 20px;">
+        <li>Potential <strong>problems</strong> which may be familiar to the audience are brought up (having to cook for guests, lacking energy for everyday activities, etc.) and a <strong>solution</strong> is provided ("You won't ever experience that again as long as sauerkraut is included in your diet")</li>
+        <li><strong>Celebrity endorsements:</strong> the use of quotes from celebrities adds credibility and persuasiveness to the claims about sauerkraut.</li>
+        <li><strong>Scientific evidence:</strong> the text mentions scientific research to support the claims about the nutritional value of sauerkraut.</li>
+    </ul>
+    
+    <p style="margin-bottom: 1.5px"><strong>Linguistic features:</strong></p>
+    <ul style="margin-top: 0; padding-left: 20px;">
+        <li><strong>Direct speech</strong> is used in the beginning of the ad.</li>
+        <li><strong>Rhetorical questions:</strong> the narrator asks, "Who said it is one apple a day that keeps the doctor away?" to challenge the traditional belief and introduce sauerkraut as a superior alternative.</li>
+        <li><strong>Descriptive emotional language:</strong> the text uses words like "rich," "essential," "improves," "enhances," and "delights" to emphasize the positive qualities and benefits of sauerkraut.</li>
+        <li><strong>Imperatives:</strong> the text uses imperative verbs like "Discover," "Try," and "Enjoy" to encourage the reader to take action and try sauerkraut.</li>
+    </ul>
+    
+    <h2>4. Cohesive devices</h2>
+    <ol style="margin-top: 0; padding-left: 20px;">
+        <li><strong>Referencing</strong> enhances the text's cohesion by connecting ideas and providing continuity.<br>
+            <strong>Anaphoric reference</strong><br>
+            - "<span class="underline">It</span> (sauerkraut) is full of vitamins A, B, C and necessary microelements."<br>
+            - "You won't ever experience <span class="underline">that</span> (feeling worn out and stressed) again as long as sauerkraut is included in your diet."<br>
+            <strong>Cataphoric reference</strong><br>
+            - "Who said <span class="underline">it</span> (one apple a day) is one apple a day that keeps the doctor away?."<br>
+            - "<span class="underline">It</span> was proven by scientific research that eating only 100 grams of sauerkraut a day can provide you with a daily supply of vitamins!"</li>
+        
+        <li><strong>Linking phrases</strong> create a coherent link between two sentences.<br>
+            "<span class="underline">On top of that,</span> one serving contains 3 grams of fiber that enhances weight loss and digestion."</li>
+        
+        <li><strong>Conjunction</strong> relates sentences and clauses to each other.<br>
+            - <strong>Subordinating conjunctions</strong><br>
+            "Enjoy it in summer and winter, <span class="underline">whether</span> you're sunbathing on the beach or skiing down a mountain slope."<br>
+            - <strong>Coordinating conjunctions</strong><br>
+            "<span class="underline">And</span> just listen to the crunch!"<br>
+            "Enjoy it in summer <span class="underline">and</span> winter, whether you're sunbathing on the beach <span class="underline">or</span> skiing down a mountain slope."</li>
+        
+        <li><strong>Ellipsis</strong> involves the omission of words or phrases that can be inferred from the context. It helps maintain a concise and fluent writing style.<br>
+            "And just listen to the crunch! (It's) Like music to your ears."</li>
+        
+        <li><strong>Comparative cohesion:</strong> the comparison between sauerkraut and an apple emphasizes the superior health benefits of sauerkraut.<br>
+            "Who said it is one <span class="underline">apple</span> a day that keeps the doctor away? Rich both in taste and vitamins, <span class="underline">sauerkraut</span> will become an essential part of your diet."</li>
+        
+        <li><strong>Synonymy</strong> is used in the text to explain the meaning of the word "sauerkraut".<br>
+            "<span class="underline">Fermented Cabbage</span> aka *<span class="underline">SAUERKRAUT</span>*"</li>
+        
+        <li><strong>Collocations</strong> are words that tend to go together:<br>
+            - "<span class="underline">Hollywood smile</span>" - this collocation is used to describe a perfect and attractive smile, often associated with celebrities.<br>
+            - "<span class="underline">Health and well-being</span>" - this is a common collocation that refers to a person's overall physical and mental health.<br>
+            - "<span class="underline">Secret ingredient</span>" - this collocation is used to describe something that is believed to be the key or special element in achieving a certain result.</li>
+    </ol>
+    
+    <h2>5. Syntactic features</h2>
+    <ul style="margin-top: 0; padding-left: 20px;">
+        <li>Future Simple Tense (Rich both in taste and vitamins, sauerkraut <strong>will become</strong> an essential part of your diet).</li>
+        <li>Present Progressive Tense (No need to worry about what to serve when you<strong>'re having</strong> guests around).</li>
+        <li>A simple sentence (You can never go wrong with sauerkraut.)</li>
+        <li>A complex sentence (You won't ever experience that again as long as sauerkraut is included in your diet.)</li>
+        <li>Subject - NP one serving (On top of that, <strong>one serving</strong> contains 3 grams of fiber that enhances weight loss and digestion.)</li>
+        <li>A transitive regular verb - enhance (<strong>enhances</strong> weight loss and digestion.)</li>
+        <li>A phrasal verb - keep away (Who said it's one apple a day that <strong>keeps</strong> the doctor <strong>away</strong>)</li>
+        <li>An ellipsis ([There is] No need to worry about what to serve when you're having guests around.)</li>
+        <li>A coordinate clause (Sauerkraut fills you with energy and improves your mood <strong>so</strong> there is no chance you miss out on work or doing things you enjoy.)</li>
+        <li>A subordinate clause (Think of all the times you couldn't excel at work or relish your favorite activities <strong>because</strong> you felt worn out or stressed).</li>
+    </ul>
+    
+    <h2>6. Potential problems with syntactic features</h2>
+    <p style="margin-bottom: 1.5px"><strong>Tense:</strong> <em>Present Continuous</em> ('...when you're having guests around')</p>
+    <ul style="margin-top: 0; padding-left: 20px;">
+        <li><span class="underline">Meaning</span>: a pre-intermediate student might not feel the context of an ongoing/background action and does not understand the reasons for using Present Continuous;</li>
+        <li><span class="underline">Form</span>: a student of a pre-intermediate level or lower might use Present Simple tense (*when you have guests around), basing their choice on the knowledge that stative words are usually not used in progressive aspect;</li>
+        <li><span class="underline">Meaning</span>: considering the point mentioned above, students should be informed that some verbs can occur in the progressive aspect with a difference in meaning. For instance, 'have' can be used in Present Continuous not with a meaning of 'possession' but referring to some action or experience;</li>
+        <li><span class="underline">Pronunciation</span>: pre-intermediate students might pronounce a full form of pronoun and auxiliary verb instead of a contraction (/juː ɑːr/ vs. /jər/).</li>
+    </ul>
+    
+    <p style="margin-bottom: 1.5px"><strong>Clauses</strong>: a relative dependent clause ('Who said it's one apple a day that keeps the doctor away?')</p>
+    <ul style="margin-top: 0; padding-left: 20px;">
+        <li><span class="underline">Punctuation</span>: intermediate students might not distinguish a defining relative clause (information cannot be omitted, no commas needed) from a non-defining one (information is not necessary, commas needed). That is why, here they can put a comma or make mistakes in other cases where it is difficult to determine the type of clause.</li>
+        <li><span class="underline">Punctuation</span>: relative pronoun <em>that</em> does not require the usage of commas. Probably, some students of lower levels can make mistakes not realizing that;</li>
+        <li><span class="underline">Form</span> of a verb: a relative pronoun <em>that</em> is not explicitly marked in terms of a number and pre-intermediate students can omit -s affix in verb since they do not match the pronoun with the word in singular number (*that keep the doctor away);</li>
+        <li><span class="underline">Form</span>: intermediate level students can put this relative pronoun in the sentences all the time since they might lack the knowledge of the fact that relative pronoun <em>that</em> can be omitted without any change to the meaning.</li>
+    </ul>
+    
+    <h2>7. 3 words from the text & potential problems students may have with them</h2>
+    
+    <table>
+        <tr>
+            <th width="20%">Word</th>
+            <th width="40%">Details</th>
+            <th width="40%">Potential Problems</th>
+        </tr>
+        <tr>
+            <td><strong>weight</strong> (noun)</td>
+            <td>
+                <strong>Meaning:</strong> how heavy something or someone is; any object that is heavy; the quality of being heavy; a unit or system of units used for expressing how much an object weighs etc.<br>
+                <strong>Pronunciation:</strong> /weɪt/<br>
+                <strong>Register:</strong> neutral
+            </td>
+            <td>
+                <strong>Pronunciation:</strong> Beginner students can struggle with pronouncing the combination of letters G, H, and T in this word. Even though this combination results in a single sound /t/, students might try to pronounce all the letters in the word - /weɪght/.<br><br>
+                Additionally, beginner students can pronounce the voiced bilabial /w/ sound as the fricative labiodental sound /v/ or have difficulties with the diphthong /eɪ/, if those are not present in their first language.<br><br>
+                <strong>Spelling:</strong> Students unfamiliar with this word might spell it as 'weit' (again, because of the 'ght' combination and its pronunciation) or even 'wait' because of the word's homophone, 'wait'.<br><br>
+                <strong>Grammar:</strong> This word can be both countable and uncountable depending on what it means in context. When 'weight' is synonymous to 'heaviness', it is uncountable and, for example, cannot be used with 'many' or have a plural form. However, the plural form 'weights' is acceptable when in context it means 'any object that is heavy, especially one lifted or thrown for exercise'.
+            </td>
+        </tr>
+        <tr>
+            <td><strong>said</strong> (verb)</td>
+            <td>
+                <strong>Meaning:</strong> to pronounce words or sounds, to express a thought, opinion, or suggestion, or to state a fact or instruction<br>
+                <strong>Pronunciation:</strong> /sed/<br>
+                <strong>Register:</strong> neutral
+            </td>
+            <td>
+                <strong>Pronunciation:</strong> ESL students can have problems with the 'ai' combination in this word and pronounce it as /sæd/, like in the word 'sad'. If they are familiar with diphthongs, students might pronounce 'said' as /seɪd/, similar to words 'laid' and 'maid' because it is a more common pronunciation of 'ai' in English words.<br><br>
+                <strong>Spelling:</strong> Due to the word's pronunciation and its homophone 'sad', students might spell it as 'sad' or 'sed'.<br><br>
+                <strong>Use with prepositions:</strong> Many students confuse 'say' in all of its forms and 'tell' when they construct sentences. Consequently, they can try to omit the necessary preposition 'to' and say 'said her' instead of 'said to her' or 'told her'.
+            </td>
+        </tr>
+        <tr>
+            <td><strong>delicious</strong> (adjective)</td>
+            <td>
+                <strong>Meaning:</strong> having a very pleasant taste or smell<br>
+                <strong>Pronunciation:</strong> /dɪˈlɪʃ.əs/<br>
+                <strong>Register:</strong> neutral
+            </td>
+            <td>
+                <strong>Pronunciation:</strong> The 'cious' part is used in only a handful of words in English, and therefore, elementary and intermediate students can struggle with pronouncing it. They can opt to say /dɪˈlɪsɪɒs/, /dɪˈlɪkəs/ or something else. The first 'e' also may cause mistakes because it requires a long /ɪ/ sound, as in 'big', instead of /e/, as in 'deli' (/ˈdel.i/).<br><br>
+                <strong>Spelling:</strong> This word can be incorrectly spelt as 'delishes', 'delishos', 'delishis' because of its pronunciation.<br><br>
+                <strong>Grammar:</strong> 'Delicious' is usually identified as an extreme non-gradable adjective. Thus pairing it with 'very' or 'really', which ESL students may do, is not recommended.
+            </td>
+        </tr>
+    </table>
+                   
+                    
+            </div>
+        </div>
+        
+        <!-- Course Analyses -->
+        <div id="course-analyses" class="tab-content">
+            <div class="main-content">
+                <h1>Course Language Analyses</h1>
+                <h2>Vocabulary Language Analysis</h2>
+                
+				<table>
+        <thead>
+            <tr class="header-row">
+                <th>Vocabulary Item (include stress, phonemic transcription [if necessary] and part of speech</th>
+                <th>Definition</th>
+                <th>Context and Eliciting Question i.e., What context will you use to elicit the language from §s? (story, dialogue, picture, etc) Be specific and include the questions you are going to use for elicitation.</th>
+                <th>Clarification of Meaning (CCQs, images, etc)</th>
+                <th>Problems and Solutions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>To blow one's own trumpet [blow your own 'trumpet]<br>The phrasal stress is on the first syllable of the word trumpet.</td>
+                <td>to tell people about your achievements, especially in a way that makes you appear too proud of yourself.</td>
+                <td>Emily and Rachel are at a networking event for their industry. During the evening, several attendees begin to share their recent accomplishments and projects they have completed. Emily is very excited about the success of her latest project, but she hesitates toEmily and Rachel are at a networking event for their industry. During the evening, several attendees begin to share their recent accomplishments and projects they have completed. Emily is very excited about the success of her latest project, but she hesitates to speak about it. Rachel, on the other hand, isn't shy at all. She confidently shares her achievements, saying, "I’ve just launched a new product that doubled our sales!" Emily notices how everyone seems impressed by Rachel’s words. Later in the evening, Emily thinks to herself that maybe she needs to be more vocal about her success. 
+What did Emily probably think about Rachel's approach to sharing her achievements? (She blows her own trumpet)
+</td>
+                <td>
+                    1. What does it mean if someone is blowing his own trumpet?
+ - (Expected answer: He/she is talking about his/her own achievements).
+2. Is it talking about someone else's success or your own?
+- (Expected answer: Our own).
+3. Does blowing your own trumpet mean you are being modest?
+ - (Expected answer: No, it means you are being boastful or proud).
+4. When might someone blow their own trumpet?
+  - (Expected answer: When they want to impress others or highlight their achievements, (like in a job interview or at a meeting)).
+                </td>
+                <td>
+  <strong>Problem:</strong>
+literary translation <-compositional meaning.<br>
+<strong>Solution:</strong> 
+explain the difference between literary and metaphorical meaning of the idiom;
+provide more examples in which this idiom can be used (show examples of using from books, films, articles, etc.).<br>
+<strong>Problem:</strong>
+inappropriate use of the phraseological unit in the particular context.<br>
+<strong>Solution:</strong> 
+demonstrate various contexts in which the idiom can be properly utilized.<br>
+<strong>Problem:</strong>
+though in general there are no complicated nuances of pronunciation, several sound pronunciation patterns may be not that easy for some students.<br>
+<strong>Solution:</strong> 
+Make an emphasis on sound combinations that are difficult to pronounce as well as on the phrasal stress of the idiom; 
+complete drilling exercises.<br>
+<strong>Problem:</strong>
+it may be hard to memorize this phraseological unit.<br>
+<strong>Solution:</strong> 
+include gamification elements to increase the level of engagement and to create positive associations that can help to better memorize this phraseological unit (e.g. role-plays with the usage of this idiom).<br>
+<strong>Problem:</strong>
+a fear to incorrectly use the idiom in their speech.<br>
+<strong>Solution:</strong> 
+explain that the idiom is often used with humor, so that students don’t be afraid of using it in their practice.<br>
+<strong>Problem:</strong>
+People with different cultural background may think that this phraseological unit can be used only with negative connotation.<br>
+<strong>Solution:</strong> 
+explain the history of this idiom and show that it can be restricted not only to negative contexts (for example, in English-speaking countries, moderate "blowing one’s own trumpet" may be perceived as self-confidence, especially in a professional environment (e.g. in interviews or resumes).
+
+                </td>
+            </tr>
+			<tr class="reference-row">
+                <td colspan="5" class="reference-cell">
+                    Reference materials used: <a href="https://dictionary.cambridge.org/dictionary/english" target="_blank">https://dictionary.cambridge.org/dictionary/english</a>
+        </tbody>
+    </table>
+     
+               
+                
+                <h2>Grammar Language Analysis</h2>
+				
+    <table>
+        <tr>
+            <th width="15%">TARGET LANGUAGE</th>
+            <td>
+                <p>What is the language point?</p>
+                <p><em>The First Conditional</em></p>
+                
+                <p><strong>Example(s):</strong></p>
+                <p class="example">1. If you eat too much cake, you will feel sick.</p>
+                <p class="example">2. If they invite us to the party, we will definitely go.</p>
+                <p class="example">3. If I see her at the store, I will tell her the news.</p>
+                <p class="example">4. If the weather is nice, we will have a picnic in the park.</p>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>Meaning analysis</th>
+            <td>
+                <p>It's essential to analyze the meaning behind the structure to help students understand when and how to use it. Here's a possible way to conduct a meaning analysis for the first Conditional:</p>
+                
+                <p>1. Focusing on what does the first Conditional express:</p>
+                <ul style="margin-top: 0; padding-left: 20px;">
+                    <li>Explain that the first Conditional is used to talk about <strong>real or possible future situations</strong> that depend on a certain condition.</li>
+                </ul>
+                
+                <p>2. Sentence Structure:</p>
+                <ul style="margin-top: 0; padding-left: 20px;">
+                    <li>Discuss the structure: If + present simple, will + base verb.</li>
+                    <li>Explain that the if-clause presents a <strong>condition</strong>, and the main clause expresses the <strong>result of this condition</strong>.</li>
+                    <li>Example: "If I study (condition), I will pass the exam (result)."</li>
+                </ul>
+                
+                <p>3. Indicating real condition:</p>
+                <ul style="margin-top: 0; padding-left: 20px;">
+                    <li>Emphasize that the condition must be <strong>realistic</strong>. For example, "If I win the lottery" suggests an uncommon but possible situation, while "If I fly to the moon" does not fit as a real possibility.</li>
+                </ul>
+                
+                <p class="remark"><strong>Remark:</strong> on the initial steps it is worth focusing on the general meaning of the first Conditional while not considering all possible meanings at once (<strong>e.g.</strong> suggestions, warnings) in order not to overload students with too much information.</p>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>Elicitation: meaning</th>
+            <td>
+                <p><strong>Context:</strong></p>
+                <p>If it's sunny this weekend, I will go to the beach with my friends. We will swim and play volleyball all afternoon. If we get tired, we will have a picnic on the sand and enjoy some snacks. If the weather is nice, I am sure we will have a great time. However, if it rains, we will stay indoors and watch movies instead.</p>
+                
+                <p><strong>Elicitation question(s):</strong></p>
+                <p>1. If it's sunny, what will I do?<br>
+                - (Expected answer: I will go to the beach.)</p>
+                
+                <p>2. What will we do if we get tired at the beach?<br>
+                - (Expected answer: We will have a picnic on the sand.)</p>
+                
+                <p>3. What happens if it rains?<br>
+                - (Expected answer: We will stay indoors and watch movies.)</p>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>Concept checking</th>
+            <td>
+                <p><strong>Concept Checking Questions:</strong></p>
+                
+                <p>1. Is the speaker talking about a past or future event?<br>
+                - (Expected answer: Future).</p>
+                
+                <p>2. If I say "If it's sunny this weekend, I will go to the beach with my friends," does this mean that I will definitely go to the beach with my friends?"<br>
+                - (Expected answer: No, it means it's a possibility.)</p>
+                
+                <p>3. Is going to the beach certain?<br>
+                - (Expected answer: No, it depends on whether it is sunny.)</p>
+                
+                <p>4. If it rains, will we stay indoors and watch movies?<br>
+                - (Expected answer: Yes, but only if it rains — we are unsure about it now.)</p>
+                
+                <p>5. Does the first part of the sentence (if it rains) express a real possibility?<br>
+                - (Expected answer: Yes, it refers to a real possible situation.)</p>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>Form</th>
+            <td>
+                <p><strong>Affirmative form:</strong></p>
+                <p>If we have time, we will (we'll) see our friends.<br>
+                <em>If + subject + V1, subject + will + infinitive</em></p>
+                
+                <p style="margin-bottom: 1.5px">or</p>
+                
+                <p>We will (we'll) see our friends, if we have time.<br>
+                <em>Subject + will + infinitive, if + subject + V1.</em></p>
+                
+                <p><strong>Negative form:</strong></p>
+                <p>If we don't have time, we won't see our friends.<br>
+                <em>If + subject + don't (doesn't) + V1, subject + won't + infinitive</em></p>
+                
+                <p><strong>Question:</strong></p>
+                <p>Will we see our friends if we have time?<br>
+                <em>Will + subject + infinitive, if + subject + V1?</em></p>
+                
+                <p><strong>Negative question:</strong></p>
+                <p>Won't we see our friends if we don't have time?<br>
+                <em>Won't + subject + infinitive, if + subject + don't (doesn't) V1?</em></p>
+                
+                <p class="remark"><strong>Remark:</strong> there are obviously more ways to form the first Conditional (<strong>e.g.</strong> If you don't leave now, you will miss the train), but due to the fact that I teach pre-intermediate students it is worth focusing on these basic patterns of forming the first Conditional on the initial steps.</p>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>Pronunciation</th>
+            <td>
+                <p>When forming both <strong>affirmative</strong> and <strong>negative</strong> statements it is more natural to use a contraction (e.g. <strong>affirmative</strong> form: we'll = we will, he'll = he will; <strong>negative</strong> form: won't).</p>
+                
+                <p>In natural speech words connect smoothly:</p>
+                <p><strong>If_we have time, we'll see our friends.</strong> (<span class="phonetic">[ɪf wɪ hæv]</span> -- sounds linked).</p>
+                
+                <p>Weak pronunciation of have/has in if-clause: <strong>if we have time</strong> → <span class="phonetic">[ɪf wɪ həv taɪm]</span> (the h in "have/has" may disappear).</p>
+                
+                <p><strong>If</strong> often links smoothly with the subject that follows it:</p>
+                <p>(e.g. <strong>If we</strong> → <span class="phonetic">[ɪfwi]</span>;<br>
+                <strong>If you</strong> → <span class="phonetic">[ɪfju]</span>;<br>
+                <strong>If I</strong> → <span class="phonetic">[ɪfaɪ]</span>;<br>
+                <strong>If he</strong> → <span class="phonetic">[ɪfhi]</span>;<br>
+                <strong>If it</strong> → <span class="phonetic">[ɪfɪt]</span>).</p>
+                
+                <p>In the <strong>affirmative</strong> statements intonation usually falls in the if-clause and rises in the main clause (If we have time ↘, we'll see our friends ↗).</p>
+                
+                <p>When a question starts with <strong>"will"</strong>, intonation rises first and then falls:</p>
+                <p><strong>Will we see our friends if we have time?</strong> (↗Will we see our friends if we have time↘?).</p>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>Written Record</th>
+            <td>
+                <p>I will highlight and practice the target language with students before the <strong>grammar presentation</strong>, so that they can use it while forming the first Conditional.</p>
+                
+                <p>I will also mark some nuances of pronunciation on the board (including negative and question forms, raising and falling of the intonation and contractions):</p>
+                
+                <p>e.g. <strong>If we</strong> have time <strong>↘</strong>, we will (<strong>we'll</strong>) see our friends <strong>↗</strong>.</p>
+                <p><span class="phonetic">[ɪfwi] [wi wɪl] [wiːl]</span> → <strong>contraction</strong></p>
+                
+                <p><strong>If we</strong> don't have time <strong>↘</strong>, we <strong>won't</strong> see our friends <strong>↗</strong>.</p>
+                <p><span class="phonetic">[ɪfwi] [woʊnt]</span> → <strong>contraction</strong></p>
+                
+                <p><strong>↗ Will we</strong> see our friends <strong>if we</strong> have time <strong>↘</strong>?</p>
+                <p><span class="phonetic">[wɪl wi] [ɪfwi]</span></p>
+                
+                <p><strong>↗ Won't we</strong> see our friends if we don't have time<strong>↘</strong>?</p>
+                <p><span class="phonetic">[woʊnt wi]</span></p>
+                
+                <p>I will use different colours to code intonation, pronunciation and contractions in order to make the perception of the material easier.</p>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>ANTICIPATED PROBLEMS & SOLUTIONS: MEANING</th>
+            <td>
+                <p><strong>Problem 1</strong>: some students may believe that the first Conditional expresses a <strong>100% guaranteed</strong> future event rather than a probability.</p>
+                <p><strong>Solution 1</strong>: clarify that the first Conditional expresses <strong>probability,</strong> rather than <strong>certainty</strong> by providing additional examples where the first Conditional is used.</p>
+                
+                <p><strong>Problem 2</strong>: students may assume that "<strong>if</strong>" always indicates a first Conditional sentence, even though "<strong>if</strong>" can also be used outside of the first Conditional (<strong>e.g.</strong> If you want, you can join us).</p>
+                <p><strong>Solution 2</strong>: writing on the board two sentences that illustrate differences in the use of "<strong>if</strong>" in the first Conditional and in other contexts and explain differences in meaning.</p>
+                <p>e.g. <strong>If</strong> you study hard, you will pass the exam.<br>
+                <strong>If</strong> you want, you can take a break.</p>
+                
+                <p><strong>Problem 3</strong>: learners may not understand that the <strong>result</strong> in the main clause depends on the condition in the <strong>if</strong>-clause (they might think that both clauses describe independent future actions).</p>
+                <p><strong>Solution 3</strong>: write examples with the first Conditional on the board and mark <strong>relationships</strong> between the clauses (<strong>e.g.</strong> drawing arrows from if-clause to the main clause).</p>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>ANTICIPATED PROBLEMS & SOLUTIONS: FORM</th>
+            <td>
+                <p><strong>Problem 1</strong>: students might forget to change the form of the verb in the if-clause supposing that they need an infinitive there (e.g. if he <strong>have</strong> time, he'll see his friends instead of if he <strong>has</strong> time, he'll see his friends).</p>
+                <p><strong>Solution 1</strong>: practice the same sentence with different subjects in order to prevent mistakes such as forgetting to change the form of the verb in if-clause (<strong>e.g.</strong> pay attention to sentences with <strong>he/she</strong> subjects where ending <strong>-s</strong> is necessary).</p>
+                
+                <p><strong>Problem 2</strong>: learners may use the verb <strong>will</strong> in the if-clause instead of the main clause.</p>
+                <p><strong>Solution 2</strong>: make a board record and highlight <strong>if</strong> and <strong>will</strong> within if-clause and pay attention to the <strong>present form</strong> of the verb within the main clause (e.g. square brackets can be used to show the boundary between the if-clause and the main clause).</p>
+                
+                <p><strong>Problem 3</strong>: students often forget to use the correct <strong>word order</strong> in the <strong>question</strong> form.</p>
+                <p><strong>Solution 3</strong>: provide students with additional sets of exercises to practice the correct word order in the question forms (ensure that <strong>"will"</strong> comes before the subject in questions).</p>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>ANTICIPATED PROBLEMS & SOLUTIONS: PHONOLOGY</th>
+            <td>
+                <p><strong>Problem 1</strong>: for some students it may be difficult to correctly pronounce the verb "will" in connected speech since in natural speech <strong>subject</strong> + <strong>will</strong> should be pronounced as a contraction.</p>
+                <p><strong>Solution 1</strong>: highlight on the board one more time the difference between the pronunciation of <strong>we will</strong> and <strong>we'll</strong> and give students more exercises to reinforce their memory. <span class="phonetic">[wi wɪl] [wiːl]</span></p>
+                
+                <p><strong>Problem 2</strong>: the word "<strong>if</strong>" might be pronounced unclearly or not linked properly with the next word.</p>
+                <p><strong>Solution 2</strong>: practice the reduced form of <strong>"if"</strong> (/ɪf/), especially when it's linked with the following word (e.g. "if we" → <span class="phonetic">[ɪfwi]</span>); focus on smooth and connected pronunciation to sound more natural.</p>
+                
+                <p><strong>Problem 3</strong>: students may forget to change intonation in the question forms and make it the same as in affirmatives.</p>
+                <p><strong>Solution 3:</strong> make an emphasis on the differences in intonation between affirmative and question forms by writing both an affirmative and a question form on the board and marking the rising and the falling intonation; after that complete a series of exercises trying to pronounce the sentences with appropriate intonation.</p>
+            </td>
+        </tr>
+        
+        <tr class="reference-row">
+            <th>Reference Materials Used</th>
+            <td>
+                <p>Soars, J., & Soars, L. (2012). <em>New Headway: Pre-Intermediate Student's Book</em> (4th ed.). Oxford University Press.</p>
+                <p>Wright, H., & Holland, D. (2015). <em>Navigate: A2.</em> Oxford University Press.</p>
+            </td>
+        </tr>
+    </table>
+
+                
+            </div>
+        </div>
+        
+        <!-- Learning Project -->
+        <div id="learning-project" class="tab-content">
+            <div class="main-content">
+                <h1>Self-designed Learning Project</h1>
+               
+                
+                     <div class="project-title" style ="font-size:20px">"Giving Directions While Traveling"</div>
+    
+    <div class="step">
+        <h2>Step 1: Identify Your Learner Group</h2>
+        <p><span class="highlight">Age:</span> 18-25 years old (young adults)</p>
+        <p><span class="highlight">Level:</span> Pre-intermediate-intermediate (A2-B1)</p>
+        <p><span class="highlight">Number of students:</span> 14 (working in pairs)</p>
+        <p><span class="highlight">Interests:</span> Travel, city exploration, navigation, and interactive communication.</p>
+        
+        <p>This age group is chosen for this project because young adults in this range often travel independently or plan trips abroad, making giving and understanding directions a highly practical skill. At the A2-B1 level, students can form basic sentences but usually struggle with fluency, logical sequencing, and natural linking phrases — key elements this project targets.</p>
+        
+        <p>The task is designed for pair work (7 pairs total) to maximize speaking time and peer interaction. Since each dialogue will last approximately 1-2 minutes, even with 7 pairs, there will be enough time for feedback and discussion.</p>
+    </div>
+    
+    <div class="step">
+        <h2>Step 2: Project Theme, Task & Final Product</h2>
+        <p>The project's theme is going to be "Giving Directions While Traveling". The project focuses on giving and understanding directions in English. This topic was chosen because it aligns with the real-life needs of students, who, as young adults, may travel, study abroad, or interact with tourists in their own cities. After learning key vocabulary items (e.g., turn left, go straight, it's next to) and practicing simple directions in class, students will apply their skills in a pair role-play activity.</p>
+        
+        <p>Each pair will receive different scenario cards: one student plays a lost tourist, and the other acts as a helpful local. They must create a 1-2 minute dialogue where the tourist asks for directions to a landmark (e.g., a train station, museum, or café), and the local responds using clear, step-by-step instructions with linking words (e.g., First, Then, Finally). After all pairs perform, the class will vote on the clearest and most natural-sounding directions, reinforcing practical communication skills.</p>
+        
+        <p>The final product (a spoken dialogue) mirrors real-world interactions, building confidence for travel. This task encourages active listening, as students must react to their partner's directions (e.g., "Sorry, could you repeat that?"). The competitive element (voting) keeps the activity engaging and interactive.</p>
+    </div>
+    
+    <div class="step">
+        <h2>Step 3: Learning Outcomes</h2>
+        <p style="margin-bottom: 1.5px">By the end of the project, students will be able to:</p>
+        <ul style="margin-top: 0; padding-left: 20px;">
+            <li>Give clear directions using linking phrases (First, Next, Then, Finally).</li>
+            <li>Ask for directions politely ("Excuse me, how do I get to...?").</li>
+            <li>Understand and follow spoken directions.</li>
+            <li>Role-play a travel scenario naturally.</li>
+        </ul>
+        
+        <p>By practicing these skills, students will develop real-world communicative competence for travel situations while improving their fluency. The role-play format encourages quick thinking and adaptation, mirroring authentic interactions where directions might need to be simplified or repeated. Additionally, this activity will help students build cultural awareness — students learn that giving directions varies across countries (e.g., landmarks vs. street names in some cultures). The collaborative nature of pair work also fosters patience and teamwork, as students must listen carefully and support each other's learning.</p>
+    </div>
+    
+    <div class="step">
+        <h2>Step 4: Assessment Criteria</h2>
+        <ul style="margin-top: 0; padding-left: 20px;">
+            <li>Clarity of directions (logical sequence).</li>
+            <li>Use of linking phrases (e.g., First, Then, Finally).</li>
+            <li>Pronunciation & fluency (no long pauses).</li>
+            <li>The correct use of prepositions ("Turn left at the..." vs. "Turn left on the...").</li>
+            <li>Engagement (natural tone, eye contact).</li>
+            <li>Following the time limit (no more than 2 minutes).</li>
+        </ul>
+    </div>
+    
+    <div class="step">
+        <h2>Step 5: Equipment Needed</h2>
+        <ul style="margin-top: 0; padding-left: 20px;">
+            <li>Printed location cards (Tourist & Local versions).</li>
+            <li>City map visuals (e.g., Tokyo, Rome, etc.).</li>
+            <li>Whiteboard and markers (for modeling directions).</li>
+            <li>Timer (for dialogue practice).</li>
+        </ul>
+    </div>
+    
+    <div class="step">
+        <h2>Step 6: Support Needed</h2>
+        <ul style="margin-top: 0; padding-left: 20px;">
+            <li>Vocabulary on the topic of travelling which will be used in the dialogue.</li>
+            <li>Pre-teach direction phrases ("Go straight," "Turn left/right," "It's next to...").</li>
+            <li>Review linking words (First, Next, After that, Finally).</li>
+            <li>Model a sample dialogue.</li>
+            <li>Allow rehearsal time before performing.</li>
+        </ul>
+    </div>
+    
+    <div class="step">
+        <h2>Step 7: Model Dialogue (Procedure)</h2>
+        <p>I will begin by demonstrating a sample dialogue between a tourist and a local, showing the format students should follow.</p>
+        
+        <p style="margin-bottom: 1.5px">After that I will highlight the features to which students should pay attention while completing the task:</p>
+        
+        <ul style="margin-top: 0; padding-left: 20px;">
+            <li><span class="highlight">Structure:</span> Clear sequencing with linking words (First, Then, After that, Finally).</li>
+            <li><span class="highlight">Landmarks:</span> Using visible reference points (fountain, supermarket, park).</li>
+            <li><span class="highlight">Polite language:</span> "Excuse me," "Of course," "You can't miss it".</li>
+            <li><span class="highlight">Prepositions:</span> "along," "onto," "on your left/right".</li>
+            <li><span class="highlight">Natural flow:</span> No long pauses, conversational tone.</li>
+        </ul>
+        
+        <p>After modeling, I will ask students to identify these features in the sample dialogue and explain why each is important for clear directions. We will then practice chorally repeating key phrases before students create their own dialogues. This will help ensure everyone understands the expectations before beginning pair work.</p>
+    </div>
+               
+            </div>
+        </div>
+        
+        <!-- Extra-curriculum Event -->
+        <div id="extra-event" class="tab-content">
+            <div class="main-content">
+                <h1>Self-designed Extra-curriculum Activity</h1>
+
+                    <div class="page">
+        
+        
+        <h1>“Global Fusion Festival: a multicultural language celebration”.</h1>
+        
+        <h2>Description of the educational context</h2>
+        <p>The Global Fusion Festival is designed to create an immersive language-learning
+        experience that bridges classroom instruction with real-world cultural exploration. Set
+        in our language school's vibrant international environment, this event provides
+        students with a unique opportunity to practice their target language (English, French,
+        or Spanish) in authentic, interactive scenarios. By engaging with diverse cultural
+        traditions, music, and customs, participants will naturally develop their listening and
+        speaking skills while expanding their vocabulary related to travel, cuisine, and social
+        interactions. The activities are carefully structured to align with CEFR levels A2-B2,
+        ensuring accessibility for intermediate learners while offering enough challenge to
+        keep advanced students engaged. This festival represents our school’s commitment
+        to fostering not just linguistic proficiency but also genuine cultural appreciation and
+        global citizenship.</p>
+        
+        <h2>Description of the event</h2>
+        <p>The Global Fusion Festival transforms our school into a bustling multicultural hub
+        through four interactive activity stations. At the Language Café, students will practice
+        ordering food in their target language from country-themed booths representing
+        France, Mexico, Great Britain and others. The Music & Dance Challenge station
+        invites participants to learn short song lyrics or dance moves while discovering
+        cultural context. For creative writing practice, the Postcard Exchange allows students
+        to compose messages to fictional characters using newly-learned cultural facts.
+        Perhaps most exciting is the Debate Zone, where learners discuss lighthearted
+        topics like "Is pizza a sandwich?" entirely in their target language. Throughout the
+        event, students collect passport stamps at each station, working toward prizes while
+        naturally reinforcing their language skills. Optional cultural dress-up (berets,
+        sombreros, etc.) and a special guest speaker session with a local expat sharing
+        travel stories add to the immersive experience.</p>
+    </div>
+
+    <div class="page">
+        <h2>Target Student Group</h2>
+        <p>This festival is ideally suited for:</p>
+        <ul style="margin-top: 0; padding-left: 20px;">
+            <li>Language learners at CEFR levels A2 (Pre-Intermediate) to B2
+            (Upper-Intermediate);</li>
+            <li>Students aged 12-18 (though easily adaptable for adult learners);</li>
+            <li>Classes focusing on general language acquisition or specific exam preparation
+            (IELTS, DELF, etc.);</li>
+            <li>Students who benefit from kinesthetic and social learning styles;</li>
+        </ul>
+        <p>The activities are designed to be inclusive yet challenging enough to push students
+        slightly beyond their comfort zones in a supportive environment.</p>
+        
+        <h2>Purpose of the event</h2>
+        <p>The Global Fusion Festival serves three primary objectives:</p>
+        <p><strong>Linguistic Development:</strong> By removing classroom walls, students practice
+        spontaneous communication through unscripted interactions like food ordering and
+        informal debates, significantly improving fluency and listening comprehension.</p>
+        <p><strong>Cultural Enrichment:</strong> Exposure to diverse traditions through music, cuisine and
+        customs fosters genuine intercultural understanding that textbooks cannot provide.</p>
+        <p><strong>Social-Emotional Growth:</strong> The low-pressure, game-like atmosphere helps reduce
+        language anxiety while collaborative tasks build teamwork and public speaking
+        confidence.</p>
+        <p>These goals align perfectly with modern language pedagogy emphasizing
+        communicative competence and intercultural awareness.</p>
+        
+        <h2>Materials to prepare</h2>
+        <p style="margin-bottom:1.5px">To ensure smooth execution, <strong>teachers</strong> will receive:</p>
+        <ul style="margin-top: 0; padding-left: 20px;"> 
+            <li>Detailed station instructions with setup guidelines;</li>
+            <li>Printable student "passports" and achievement stamps;</li>
+            <li>Debate topic cards with scaffolding questions;</li>
+            <li>Cultural background sheets for each country station.</li>
+        </ul>
+        <p style="margin-bottom:1.5px"><strong>Students</strong> will access:</p>
+        <ul style="margin-top: 0; padding-left: 20px;">
+            <li>Pre-event vocabulary lists (e.g., polite ordering phrases);</li>
+            <li>Curated YouTube playlists of cultural music/dances;</li>
+            <li>Templates for postcard writing with sentence starters.</li>
+        </ul>
+        
+        <h2>Email to Teachers</h2>
+        <p style="margin-bottom:1.5px"><strong>Subject:</strong> Global Fusion Festival – Teacher Guidelines & Sign-Up.</p>
+        <p style="margin-bottom:1.5px"><strong>To:</strong> All teachers</p>
+   
+
+        <p style="margin-bottom:1.5px"><strong>From:</strong> Event Organiser</p>
+        <p style="margin-bottom:1.5px">Dear Colleagues,</p>
+        <p>We invite you to participate in our Global Fusion Festival on June 5th (4:00-6:00 PM)
+        – an immersive event where students will practice language skills through cultural
+        exploration. Below are key details for your role:</p>
+  
+        <h3 style="margin-bottom:1.5px">Pre-Event Preparation (By May 30th)</h3>
+        <p style="margin-bottom:1.5px"><strong>Introduce the Event:</strong> Use the [attached PowerPoint] to explain stations/passport
+        systems.</p>
+        <p style="margin-bottom:1.5px"><strong>Distribute Materials:</strong>
+        <ul style="margin-top: 0; padding-left: 20px;">
+            <li>Share the pre-event vocabulary list (food/trivia phrases);</li>
+            <li style="margin-bottom:1.5px">Cultural video playlist (2-min previews of each country)</li>
+        </ul>
+		</p>
+        
+        <h3 style="margin-bottom:1.5px">On Event Day</h3>
+        <p style="margin-bottom:1.5px"><strong>Your Responsibilities:</strong>
+        <ul style="margin-top: 0; padding-left: 20px;">
+            <li><strong>Station Facilitation:</strong> Each teacher will oversee one 30-minute activity (training
+            provided).</li>
+            <li><strong>Encouragement Focus:</strong> Prioritize participation over perfection – corrections only if
+            meaning is lost.</li>
+            <li style="margin-bottom:1.5px"><strong>Attire:</strong> Wear an item representing a culture you admire (optional but fun!).</li>
+        </ul></p>
+        
+        <h3>Schedule</h3>
+        <p style="margin-bottom:1.5px">3:30-4:00 PM: Setup & volunteer briefing (snacks provided).</p>
+        <p>4:00-6:00 PM: Event runtime (see [full schedule]).</p>
+        
+        <h3 style="margin-bottom:1.5px">Action Required</h3>
+        <p style="margin-bottom:1.5px"><strong>Confirm Participation:</strong></p>
+        <p style="margin-bottom:1.5px">Reply with:</p>
+        <ul style="margin-top: 0; padding-left: 20px;">
+            <li>Your preferred station (1st/2nd choice);</li>
+            <li style="margin-bottom:1.5px">Any dietary restrictions (for setup snacks).</li>
+        </ul>
+        <p style="margin-bottom:1.5px"><strong>Deadline:</strong> April 5th via [Google Form link].</p>
+ 
+        <p style="margin-bottom:1.5px">Let's create a memorable language immersion experience together!</p>
+        <p style="margin-bottom:1.5px">Best regards,</p>
+        <p>Global Language School</p>
+		 </div>
+	<div class="page">
+<h2>Poster</h2><br><br>
+     <img src="poster.jpg" alt="My photo"
+                 style="width: 600px;
+                        height: 700px;
+                        float: left;
+                        margin-right: -10px;
+                        margin-left: -5px;
+                        margin-top: -40px;
+                        margin-bottom:-40px;
+                        background: white;"> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ 
+   </div>
+    <div class="page">
+        <h2>Event Schedule</h2>
+        
+        <p><strong>3:30-4:00 PM | Setup & Volunteer Briefing</strong></p>
+        <p>Teachers and student helpers transform spaces into country stations while reviewing facilitation guides.</p>
+        
+        <p><strong>4:00-4:15 | Opening Ceremony</strong></p>
+        <p>Principal's welcome speech (3 languages);</p>
+        <p>Demonstration of passport stamp collection system;</p>
+        <p>Group icebreaker: "Where in the world would you teleport?".</p>
+        
+        <p><strong>4:15-5:30 | Station Rotation</strong></p>
+        <p>20-minute intervals at:</p>
+        <ul style="margin-top: 0; padding-left: 20px;">
+            <li>Taste the World Café (Food vocabulary);</li>
+            <li>Global Groove (Music/dance);</li>
+            <li>Postcard Crossing (Creative writing);</li>
+            <li>World Debate Club (Persuasive speaking);</li>
+            <li>Culture Trivia (Listening comprehension).</li><br>
+        </ul>
+        
+        <p><strong>5:30-6:00 | Closing Celebration</strong></p>
+        <p>Guest speaker: Travel blogger shares "3 awkward cultural moments I survived";</p>
+        <p>Prize distribution for completed passports;</p>
+        <p>Group photo with all country flags.</p>
+    </div>
+
+    <div class="page">
+        <h2>Assessment criteria</h2>
+        
+        <p>Team Name: ______</p>
+        <p>Target Language: □ English □ French □ Spanish</p>
+        
+        <table>
+            <tr>
+                <th>Category (Max 5 pts each)</th>
+                <th>5 (Excellent)</th>
+                <th>4 (Good)</th>
+                <th>3 (Developing)</th>
+                <th>2 (Needs Improvement)</th>
+                <th>Score</th>
+            </tr>
+            <tr>
+                <td><strong>Language Use</strong></td>
+                <td>Consistently accurate grammar/vocabulary; native-like fluency.</td>
+                <td>Occasional errors don't hinder communication.</td>
+                <td>Frequent errors but main ideas clear.</td>
+                <td>Struggles to express ideas; many errors.</td>
+                <td>■</td>
+            </tr>
+            <tr>
+                <td><strong>Cultural Engagement</strong></td>
+                <td>Deep cultural insights; connects activities to real-world contexts.</td>
+                <td>References cultural facts accurately.</td>
+                <td>Basic cultural understanding shown.</td>
+                <td>Minimal cultural relevance.</td>
+                <td>■</td>
+            </tr>
+            <tr>
+                <td><strong>Collaboration</strong></td>
+                <td>All members contribute equally; excellent teamwork.</td>
+                <td>Most participate actively; some imbalance.</td>
+                <td>1-2 dominate; others minimally involved.</td>
+                <td>One member carries the team.</td>
+                <td>■</td>
+            </tr>
+            <tr>
+                <td><strong>Creativity</strong></td>
+                <td>Unique ideas (e.g., original postcard messages, dance fusion).</td>
+                <td>Creative within standard frameworks.</td>
+                <td>Follows templates with little innovation.</td>
+                <td>Relies entirely on provided materials.</td>
+                <td>■</td>
+            </tr>
+            <tr>
+                <td><strong>Task Completion</strong></td>
+                <td>Fully completes all station challenges + extra effort.</td>
+                <td>Completes all required tasks.</td>
+                <td>Misses 1-2 elements.</td>
+                <td>Incomplete participation.</td>
+                <td>■</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page">
+        <h2>Certificate</h2><br><br>
+      
+        <img src="certificate.jpg" alt="My photo"
+                 style="width: 600px;
+                        height: 700px;
+                        float: left;
+                        margin-right: -10px;
+                        margin-left: -5px;
+                        margin-top: -40px;
+                        margin-bottom:-40px;
+                        background: white;"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+						</div>
+        <div style="margin-top: 100px;">
+            <div style="display: inline-block; width: 40%; text-align: left;">
+               
+            
+        </div>
+    </div>
+
+    <div class="page">
+        <h2>Budget chart</h2>
+        
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Unit Cost</th>
+                <th>Total Cost</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td colspan="5"><strong>Decorations</strong></td>
+            </tr>
+            <tr>
+                <td>- Flag bunting</td>
+                <td>5 sets</td>
+                <td>200 RUB</td>
+                <td>1,000 RUB</td>
+                <td class="budget-notes">Reusable for future events</td>
+            </tr>
+            <tr>
+                <td>- Country table signs</td>
+                <td>8</td>
+                <td>150 RUB</td>
+                <td>1,200 RUB</td>
+                <td class="budget-notes">Laminated cards</td>
+            </tr>
+            <tr>
+                <td>- Passport booklets</td>
+                <td>100</td>
+                <td>20 RUB</td>
+                <td>2,000 RUB</td>
+                <td class="budget-notes">Printed in-house</td>
+            </tr>
+            <tr>
+                <td colspan="5"><strong>Consumables</strong></td>
+            </tr>
+            <tr>
+                <td>- Sample foods</td>
+                <td>1 set</td>
+                <td>1,500 RUB</td>
+                <td>1,500 RUB</td>
+                <td class="budget-notes">Mini-portions for 100 ppl</td>
+            </tr>
+            <tr>
+                <td>- Beverages</td>
+                <td>1 set</td>
+                <td>800 RUB</td>
+                <td>800 RUB</td>
+                <td class="budget-notes">Int'l tea/juice selection</td>
+            </tr>
+            <tr>
+                <td>- Craft supplies</td>
+                <td>30 packs</td>
+                <td>100 RUB</td>
+                <td>3,000 RUB</td>
+                <td class="budget-notes">Paper, markers, glue</td>
+            </tr>
+            <tr>
+                <td colspan="5"><strong>Prizes & Marketing</strong></td>
+            </tr>
+            <tr>
+                <td>- Participation badges</td>
+                <td>100</td>
+                <td>30 RUB</td>
+                <td>3,000 RUB</td>
+                <td class="budget-notes">Custom "Global Citizen"</td>
+            </tr>
+            <tr>
+                <td>- Grand prize</td>
+                <td>1</td>
+                <td>1,500 RUB</td>
+                <td>1,500 RUB</td>
+                <td class="budget-notes">Ethnic cookbook + voucher</td>
+            </tr>
+            <tr>
+                <td>- Social media ads</td>
+                <td>2 weeks</td>
+                <td>500 RUB</td>
+                <td>1,000 RUB</td>
+                <td class="budget-notes">Targeted promos</td>
+            </tr>
+            <tr>
+                <td colspan="5"><strong>Miscellaneous</strong></td>
+            </tr>
+            <tr>
+                <td>- Contingency fund</td>
+                <td>-</td>
+                <td>-</td>
+                <td>2,000 RUB</td>
+                <td class="budget-notes">Unplanned expenses</td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td></td>
+                <td></td>
+                <td><strong>17,000 RUB</strong></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page last-page">
+        <!-- Empty page as in the PDF -->
+    </div>
+                 
+                
+            </div>
+        </div>
+        
+        <!-- Learner Analysis -->
+        <div id="learner-analysis" class="tab-content">
+            <div class="main-content">
+                <h1>Learner Analysis Assignment</h1>
+                
+                
+    
+
+    
+    <div class="part-section">
+        <h2 class="underline">Part 1: Background</h2>
+        
+        <table>
+            <tr>
+                <th width="30%">The learner you have chosen:</th>
+                <td>Helen, aged 48, is a Manager of Sale Department in an international company. Her native language is Russian and her second language is English. Her favorite pastimes are making puzzles, knitting and growing vegetables.</td>
+            </tr>
+            <tr>
+                <th>Your student's learning history / previous experience of learning English (or other languages). His/her reasons for learning English. His/her learning preferences (e.g., consider the VAK or the multiple intelligence framework) and preferred activity types.</th>
+                <td>
+                    <p>Helen started learning English at school at the age of 10 years old as a compulsory course which was included in the educational program. After finishing school, she continued studying English at the university and also took an additional English course with the private tutor for two years aimed at developing her general English skills as well as practicing English in the area of economy which was quite beneficial for her job.</p>
+                    
+                    <p>The major reason for learning English was a need to use it in the professional settings: since Helen is a Manager of Sale Department she should be able to explain the delivery conditions to her clients. Now Helen's motivation is mainly extrinsical because she uses English primarily for the purposes of her job. Sometimes she exposes herself to the natural English environment: she likes watching videos that are aligned with her hobbies and many of these videos are designed in English, that's why learning general English is of her interest.</p>
+                    
+                    <p>Regarding the type of intelligence Helen is an intrapersonal learner since she prefers to have a deep and accurate understanding of the self and possesses a high degree of self-confidence and self-efficacy. For this reason, she doesn't like group activities and role-plays. Helen prefers TBL approach since she can practice to solve real-life tasks that are applicable for her job and use English for performing particular tasks.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="part-section">
+        <h2 class="underline">Part 2: Strengths/Weaknesses/Needs of your learner</h2>
+        
+        <table>
+            <tr>
+                <th width="30%">Area</th>
+                <th width="35%">Strengths/Weaknesses</th>
+                <th width="35%">Specific learning needs</th>
+            </tr>
+            <tr>
+                <td>
+                    <p><span class="highlight">Receptive skills</span> (reading or listening - refer to sub-skills) and in the two <span class="highlight">productive skills</span> (writing and speaking/fluency).</p>
+                    <p>Which skills/sub-skills are strong and which ones need development?</p>
+                </td>
+                <td>
+                    <p>Helen demonstrates good reading skills especially considering the detailed comprehension of the documentation and catalogs. It is evidenced by her successful communication with the clients while making fast translations of their requests and addressing their needs. By comprehending and clarifying clients' questions Helen is able to quickly prepare appropriate documents and therefore perform competently within the professional settings.</p>
+                    
+                    <p>Listening is not Helen's strong side since she doesn't need it in the professional environment, although sometimes at the conferences she needs to grasp the main idea of the talk while listening to the speech of colleagues and clients from different European countries.</p>
+                    
+                    <p>Regarding writing skills Helen corresponds to the required structure of letters and formulates the major problem accurately and explicitly.</p>
+                    
+                    <p>Speaking as well as listening is not an essential part of Helen's job, that's why she doesn't practice speaking frequently and regularly.</p>
+                    
+                    <p>In general, Helen needs both accuracy and fluency while reading clients' messages and writing responses to their emails.</p>
+                </td>
+                <td>
+                    <p style="margin-bottom: 1.5px"><span class="highlight">Receptive skills development needs:</span></p>
+                    <ul style="margin-top: 0; padding-left: 20px;">
+                        <li>practice in listening of the speech of American English speakers;</li>
+                        <li>learn to extract main information from clients' slurred speech.</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 1.5px"><span class="highlight">Writing development needs:</span></p>
+                    <ul style="margin-top: 0; padding-left: 20px;">
+                        <li>learn more turns of speech to make the speech high-flown while still aligning with the structure of the letter;</li>
+                        <li>focus on word appropriacy to match the tone and purpose of the writing.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Comment on the learner's <span class="highlight">grammar, vocabulary and pronunciation</span>. What are your learner's strengths in these areas? What are their needs?</p>
+                </td>
+                <td>
+                    <p>Helen is good at general grammar rules what is enough for her job.</p>
+                    
+                    <p>She hasn't got a wide range of vocabulary what is the reason to the usage of dry speech and the difficulty of expressing thoughts accurately. Helen's pronunciation skills are at the medium level. Since she doesn't have regular oral discussions there is no need to correct pronunciation errors immediately.</p>
+                </td>
+                <td>
+                    <p style="margin-bottom: 1.5px"><span class="highlight">Grammar development needs:</span></p>
+                    <ul style="margin-top: 0; padding-left: 20px;">
+                        <li>develop a wider range of grammatical structures and constructions for professional settings;</li>
+                        <li>constantly refresh basic grammar rules that are essential for the structure of the letters.</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 1.5px"><span class="highlight">Vocabulary development needs:</span></p>
+                    <ul style="margin-top: 0; padding-left: 20px;">
+                        <li>extend the vocabulary of physical and chemical variables that are frequently used in the job;</li>
+                        <li>learn new unknown modern words for maintaining the conversation with clients.</li>
+                    </ul>
+                    
+                    <p style="margin-bottom: 1.5px"><span class="highlight">Pronunciation development needs:</span></p>
+                    <ul style="margin-top: 0; padding-left: 20px;">
+                        <li>while learning new vocabulary pay attention to the correct pronunciation of words and phrases;</li>
+                        <li>maintain basic speaking skills in case of business travels and exhibitions.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>In your opinion, why is your learner strong/weak in the areas above? What <span class="highlight">effect</span> has his/her <span class="highlight">background</span>, <span class="highlight">previous learning experience</span> and <span class="highlight">learning preferences</span> had on his/her current learning? Consider his/her <span class="highlight">interests, needs</span>, <span class="highlight">motivation, learning preferences</span> and <span class="highlight">how they learned English.</span></p>
+                </td>
+                <td colspan="2">
+                    <p>Helen demonstrates good reading and writing skills because they are inextricably interwoven with her job but she doesn't possess great speaking and listening skills since they are not essential for her professional settings and she doesn't often practice in it.</p>
+                    
+                    <p>Since Helen has successfully studied English at school and at university she has a sufficient range of vocabulary and possesses a high degree of grammar correctness considering basic grammar patterns. Taking an additional English course with the private tutor was a great decision in Helen's life because it helps her practice English within the professional environment. That's why she feels confident about her job.</p>
+                    
+                    <p>Regardless of the competence of Helen's job, she prefers to reinforce her basic knowledge of grammar to sustain the level of self-confidence and self-efficacy.</p>
+                    
+                    <p>Helen's motivation in learning English is to a great extent extrinsical because she mainly applies it for her job.</p>
+                    
+                    <p>Though Helen doesn't need listening and speaking practice in the professional environment, she still has a great motivation for continuing learning English for herself. During the leisure time she exposes herself to the natural English environment by watching videos about knitting and puzzling. Sometimes she also practices English with her relatives and friends that live abroad.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+            </div>
+        </div>
+        
+        <!-- Practice Tasks -->
+        <div id="practice-tasks" class="tab-content">
+            <div class="main-content">
+                <h1>Language Practice Tasks</h1>
+                              <div class="authors">Authors: Astashina Aleksandra, Zubkov Ivan</div>
+
+    <h2>Controlled, semi-controlled and freer practice tasks for <i>Some/Any</i></h2>
+    
+    <div class="task">
+        <div class="task-header">
+            <div class="task-number">Task 1.</div>
+            <div>Complete the gaps with <i>some</i> or <i>any</i>.</div>
+        </div>
+        
+        <ol class="task-items">
+            <li>I have <span class="gap">______</span> apples in my bag.</li>
+            <li>She doesn't have <span class="gap">______</span> books on her desk.</li>
+            <li>I ate <span class="gap">______</span> pizza for dinner last night.</li>
+            <li>We don't have <span class="gap">______</span> time to talk right now.</li>
+            <li>There are <span class="gap">______</span> people at the party.</li>
+            <li>He doesn't want <span class="gap">______</span> ice cream.</li>
+            <li>Did you have <span class="gap">______</span> money yesterday?</li>
+            <li>There aren't <span class="gap">______</span> pencils in my pencil case.</li>
+            <li>They are eating <span class="gap">______</span> sandwiches for lunch.</li>
+            <li>I don't have <span class="gap">______</span> friends in this city.</li>
+        </ol>
+    </div>
+
+    <div class="task">
+        <div class="task-header">
+            <div class="task-number">Task 2.</div>
+            <div>Write a short paragraph about the products that you have and don't have in your fridge. Use <i>some</i> and <i>any</i>.</div>
+        </div>
+    </div>
+
+    <div class="task">
+        <div class="task-header">    
+            <div class="task-number">Task 3.</div>
+            <div>You are planning a small party with your friends. Write a short message to ask your friends if they have everything for the party <br>and also tell them what you can bring.</div>
+        </div>
+    </div>
+	</div>
+	</div>
+        <!-- Authentic Text -->
+        <div id="auth-text" class="tab-content">
+            <div class="main-content">
+                 <h1>Authentic Materials Assignment</h1>
+
+				 
+				 
+				 <img src="karkar.jpg" alt="My photo"
+                 style="width: 350px;
+                        height: 250px;
+                        float: left;
+                        margin-right: 10px;
+                        margin-left: 5px;
+                        margin-top: 50px;
+                        margin-bottom:20px;
+                        background: white;">
+                    <br><br><br><br><br>
+                     <a href="https://docs.google.com/document/d/1lWXWMbn4l5LZKzZo9IhdA0xCqhQxXcs1?rtpof=true&usp=drive_fs" class="file-link" target="_blank" style="width: 500px; margin-left:500px">
+					 Click here to know more about Karkar Islands and coconuts.</a>
+                </div>
+    </div>
+	 </div>
+	 
+        
+        <!-- Lesson Plan -->
+        <div id="lesson-plan" class="tab-content">
+            <div class="main-content">
+                <h1>Peer teaching-Lesson plan: reflection work seminar</h1>
+                
+                <p><strong>Name</strong>: "Small excursion into the world of art"</p>
+    <p><strong>Date</strong>: 21.02.24</p>
+    <p><strong><span class="mark">TP</span> No.</strong>: no experience in teaching</p>
+    <p><strong>Length</strong>: 30</p>
+    <p><strong>Tutor</strong>: Natalya Victorovna</p>
+    <p><strong>Topic/ theme</strong>: the most famous paintings over the world (EFL? )</p>
+    <p><strong>Lesson focus</strong>: <strong>listening and speaking</strong></p>
+
+    <h2>Aims:</h2>
+    <p style="margin-bottom: 1.5px">1) Main:</p>
+    <blockquote>
+        <p style="margin-bottom: 1.5px">We would like to develop people's ability of transforming the world around them into the different feelings and harmony</p>
+        <p>Also, we want to motivate peers by showing the beauty of the surroundings and breaking them away from reality. Moreover, our lesson is a great chance to get acquainted with and remember the best works of art, thinking about the topic.</p>
+    </blockquote>
+
+    <p style="margin-bottom: 1.5px">2) Subsidiary:</p>
+    <blockquote>
+        <p>One of the subsidiary aims is "establishing the level of the knowledge on the topic". Another one is "systematizing the type of art, the year and the country".</p>
+    </blockquote>
+
+    <p style="margin-bottom: 1.5px">3) Personal:</p>
+    <blockquote>
+        <p>According to the personal aims we are going to develop respect for the art of your homeland. Furthermore, we see that worldview development is significant as it helps to prevent the society from anxiety.</p>
+    </blockquote>
+
+    <h2><span class="mark">Group profile</span>:</h2>
+    <p><span class="mark">number of students: 24</span></p>
+    <p><span class="mark">gender ratio: 19 female and 5 male</span></p>
+    <p><span class="mark">nationalities: mainly Russian students</span></p>
+    <p><span class="mark">motivation: highly-motivated students (interested in practicing peer-teaching because it is a task for everyone, and it is assessed. According to the topic, there are some students who are keen on art in a group, while others will be motivated to listen to the lesson by our team)</span></p>
+    <p><span class="mark">interests: not everyone is interested and have already faced paintings, but we believe that art is one of the inalienable parts of our life, so it seems to us that knowing the most famous paintings is important.</span></p>
+    <p><span class="mark">class dynamics: we have an opportunity only to guess, because there is the first lesson on this topic within this group and we have no ideas of the "starting point" of each student. However, it will be seen during in our lesson( while traveling all over the world on a map and guessing famous paintings)</span></p>
+
+    <h2><span class="mark">Experience and skills:</span></h2>
+    <p><span class="mark"><span class="underline">What language do you expect students to know that you are (not) planning to teach?</span></span></p>
+    <p><span class="mark">We are teaching our lesson in English only, so it is the only language students should understand.</span></p>
+    <p><span class="mark"><span class="underline">What art paintings do you expect students to know that you are (not) planning to teach?</span></span></p>
+    <p><span class="mark">It is great if students are familiar with art, but the aim of the lesson to face with this topic all students even in case they see these paintings at the first time.( We hope the "first" and NOT "the last" in our case)</span></p>
+    <p><strong>There is no specific answer for this question, the list of famous artworks with which students are supposed to be familiar with.</strong></p>
+    <p><span class="mark"><span class="underline">What language items have students looked at in previous classes that are relevant to your aims?</span></span></p>
+    <p><span class="mark">The previous peer-teaching lesson our colleagues presented was about anxiety.</span></p>
+    <p><span class="mark">We find it really helpful for our topic and aims, because art can cope with this feeling or, the opposite- cause it. Our students will be able to reduce stress and feel comfortable in harmony using art too.</span></p>
+
+    <h2><span class="mark">Assumption</span>:</h2>
+    <p><span class="mark">Students' interest/general knowledge in relation to the material/context?</span></p>
+    
+    <p><span class="mark">We think that students have faced with art at schools: there were drawing lesson(art) and world artistic cultures( in Russian: "МХК"- Мировая художественная культура) where they were taught paintings.</span></p>
+
+    <h2><strong>Sources of materials:</strong></h2>
+
+    <h2><span class="mark">Possible problems:</span></h2>
+    <p><span class="mark">Here we have tried to predict which problems students may face during the online lesson. It will help us to avoid difficulties during our peer-teaching and we will take into account these problems in our stages to minimize their influence.</span></p>
+    <p style="margin-bottom:1.5px"><span class="mark">Technical:</span></p>
+    <ul style="margin-top: 0; padding-left: 20px;">
+        <li><span class="mark">Poor internet connection: Students may face difficulties in accessing the online lesson due to slow or unreliable internet connections.</span></li>
+        <li><span class="mark">Technical glitches: Students may encounter issues with the online platform, such as audio or video problems, which can disrupt the learning experience.</span></li>
+        <li><span class="mark">Incompatible devices and no access to the lesson: Some students may not have access to devices that are compatible with the online platform, making it challenging for them to participate fully.</span></li>
+        <li><span class="mark">Lack of technical skills: Students who are not familiar with online tools and platforms may struggle to navigate through the lesson or use the required features effectively. For example, can not find some options( hands up and so on).</span></li>
+    </ul>
+
+    <p style="margin-top: 0 padding-left: 5px"><br>1) <span class="mark">Engagement and Participation Problems:</span></p>
+    <ul style="margin-top: 0; padding-left: 20px;">
+        <li style="margin-bottom:1.5px"><span class="mark">Distractions at home: Students may face distractions from family members, pets, or other activities happening around them, which can hinder their focus and engagement during the lesson.</span></li>
+        <li><span class="mark">Limited interaction: Online lessons may lack the same level of interaction and engagement as in-person classes, making it harder for students to actively participate and ask questions.</span></li>
+        <li><span class="mark">Lack of motivation: Without face-to-face interaction and immediate feedback, some students may struggle to stay motivated and engaged throughout the online art lesson.</span></li>
+    </ul>
+
+    <p style="margin-top: 0; padding-left: 5px;"><br>2) <span class="mark">Communication Problems:</span></p>
+    <ul style="margin-top: 0; padding-left: 20px;">
+        <li><span class="mark">Language barriers: Students whose English is not really good may face difficulties understanding instructions or expressing themselves during the online art lesson.</span></li>
+        <li><span class="mark">Miscommunication: Online communication can sometimes be prone to misinterpretation or misunderstandings, leading to confusion among students.</span></li>
+   
+   </ul>
+
+    <p style="margin-top: 0; padding-left: 5px;"><br>3) <span class="mark">Time Management Problems:</span></p>
+    <ul style="margin-top: 0; padding-left: 20px;">
+        <li><span class="mark">Procrastination: Without the structure of a physical classroom, students may struggle with time management and procrastinate on completing assignments or participating actively in the online art lesson.</span></li>
+        <li><span class="mark">Overwhelm with workload: Students may feel overwhelmed with the amount of online assignments and tasks, especially if they have multiple online classes to manage simultaneously.</span></li>
+        <li><span class="mark">Lack of routine: The absence of a regular school schedule may disrupt students' daily routines, making it challenging for them to establish a consistent study and art practice routine.</span></li>
+    </ul>
+
+    <h2><span class="mark">Stages:</span></h2>
+    <table>
+        <tr>
+            <th><span class="mark">STAGE NAME</span></th>
+            <th><span class="mark">STAGE AIM(S)</span></th>
+            <th><span class="mark">PROCEDURE</span></th>
+            <th><span class="mark">TIMING (mins)</span></th>
+            <th><span class="mark">INTER.</span></th>
+            <th><span class="mark">ANTICIPATED PROBLEMS AND SOLUTIONS</span></th>
+        </tr>
+        <tr>
+            <td>Greeting</td>
+            <td><span class="mark">to demonstrate good relationship to students, build rapport.</span></td>
+            <td>Hello, everyone! Today we are going to have a lesson with you. But before we begin, we would like to know how are you today? Are you ready to start a new topic? Please feel free to answer. You can say a few words or use a chat box.<br><strong>Firstly, teachers should introduce themselves</strong><br><strong>(maybe ask students to answer the question about their mood right now using the emoji in the chatbox).</strong></td>
+            <td><span class="mark">1</span></td>
+            <td><span class="mark">T-Ss</span></td>
+            <td><span class="mark">Not all students are ready to share their feelings, emotions, discuss personal problems(distrustful atmosphere.</span><br><span class="underline"><strong>Solution:</strong></span><br><span class="mark">We will not ask about negatives in their life and will make an emphasis on a positive feelings and events.</span></td>
+        </tr>
+        <tr>
+            <td><span class="mark">Intro game</span></td>
+            <td><span class="mark">to interact all students in participation and make a little warm-up.</span></td>
+            <td><span class="mark">Well, we understand all your feelings!</span><br><strong>scenario 1:</strong><br><span class="mark">Really happy that most of you are energized and wish to be an active listener, participant today. Now we would like to make you feel 200% of energy and play a game called</span> "Hangman". Here on the slide there is an instruction on how to play. We have come up with one world which is connected to our topic today. In fact, it is a topic. You need to guess what we are going to discuss. You may use the "one letter" way or try to say the whole world. Does everyone understand the rules? Ready? Let's start!<br><strong>scenario 2:</strong><br>Sad to hear that today is not your best day, but we would like to try to make your day better and your mood not so pessimistic. To do this we would like to play the famous game "Hangman". Here on the slide there is an instruction on how to play. We have come up with one world which is connected to our topic today. In fact, it is a topic. You need to guess what we are going to discuss. You may use the "one letter" way or try to say the whole world. Does everyone understand the rules? Ready? Let's start!</td>
+            <td><span class="mark">4</span></td>
+            <td><span class="mark">T-Ss</span></td>
+            <td><span class="mark">Some students may be really active and will try all letters, while others can not offer their ideas.</span><br><span class="underline"><strong>Solution:</strong></span><br><span class="mark">Ask to suggest letters one by one, without interrupting.</span></td>
+        </tr>
+        <tr>
+            <td><span class="mark">Theoretical part</span></td>
+            <td>to immerse yourself in the world of art,<br><span class="mark">systematizing the type of art, the year and the country.</span></td>
+            <td><span class="mark">We are going to place TOP paintings all over the world on a map and give information</span> in the sequence of countries in which students want.</td>
+            <td><span class="mark">10</span></td>
+            <td><span class="mark">T-Ss</span></td>
+            <td>Difficulties with knowledge of countries and fear of making mistakes.<br><span class="underline"><strong>Solution:</strong></span><br> Ask different students, make them think individually or discuss in pairs and groups in a chat.</td>
+        </tr>
+        <tr>
+            <td><span class="mark">Quiz</span></td>
+            <td>to check student's understanding of the material and find out the most attentive students.</td>
+            <td></td>.
+            <td><span class="mark">5</span></td>
+            <td><span class="mark">Individual</span></td>
+            <td>1)Some students may be upset about the results of the quiz<br>2)Some students may face difficulties to answer all questions of the quiz.<br><span class="underline"><strong>Solution:</strong></span><br> Make anonymous results, clarify that there are no victories without defeats, remind that students shouldn't be afraid of making mistakes - it is a great way to learn.</td>
+        </tr>
+        <tr>
+            <td>Interactive part</td>
+            <td>to involve students in the topic of art, make them interested and give an opportunity to try themselves in a new field, relax and relieve stress.</td>
+            <td>Creating your own painting using artificial intelligence.</td>
+            <td><span class="mark">10</span></td>
+            <td><span class="mark">Ss-Ss</span><br><span class="mark">T-Ss</span></td>
+            <td><span class="mark">Technical problems only, because the task is not hard. It is involving and relaxing.</span></td>
+        </tr>
+    </table>
+
+	 </div>
+	 </div>
+    
+    <footer>
+        <p>&copy; 2025 Academic Portfolio. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            // Функция для переключения вкладок
+            function switchTab(tabId) {
+                // Скрыть все вкладки
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Показать выбранную вкладку
+                const activeTab = document.getElementById(tabId);
+                if (activeTab) {
+                    activeTab.classList.add('active');
+                }
+                
+                // Обновить активную кнопку в навигации
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-tab') === tabId) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Прокрутить к вкладке
+                if (activeTab) {
+                    activeTab.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            
+            // Обработчик кликов по навигации
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tabId = this.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+            
+            // При загрузке страницы показываем первую вкладку
+            switchTab('title-page');
+        });
+    </script>
+</body>
+</html>
