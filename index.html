@@ -270,13 +270,62 @@
         }
         .resource-link:hover {
             text-decoration: underline;
-			
+			.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
 }
-			.profile-text {
+		.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.profile-text {
     padding: 0 15px;
     text-align: center;
 }
-        }
+
+.books-img {
+    width: 100%;
+    height: auto;
+    max-width: 350px;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .profile-text {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+
         
         
         }
@@ -307,7 +356,7 @@
         <div id="title-page" class="tab-content active">
             <div class="main-content">
                 <h1>My Portfolio</h1>
-                
+                 <div class="profile-container">
                 <img src="My photo.jpg" alt="My photo"
                  style="width: 200px;
                         height: 200px;
@@ -319,9 +368,10 @@
                         background: white;">
 						 
 					
-	<div class="profile-text">
+	 <div class="profile-text">
                    <p style="margin-left: 240px"> <br><br> On this website you can find information about my portfolio project. Click on the appropriate tab to find information about particular language analysis, lesson plan, extra-curriculum activity and different learning projects. </p>
-					  </div>
+					 </div>
+        </div>
 					<img src="Books.jpg" alt="My photo"
                  style="width: 350px;
                         height: 200px;
