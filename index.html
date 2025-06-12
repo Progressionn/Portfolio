@@ -270,63 +270,83 @@
         }
         .resource-link:hover {
             text-decoration: underline;
-			.profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-		.profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
-.profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
+.profile-image-wrapper {
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto 20px;
+}
+
+.profile-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .profile-text {
-    padding: 0 15px;
-    text-align: center;
+  width: 100%;
+  padding: 0 15px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-.books-img {
-    width: 100%;
-    height: auto;
-    max-width: 350px;
-    display: block;
-    margin: 20px auto;
+.books-image-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-/* Медиа-запросы для мобильных устройств */
+.books-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Адаптация для мобильных */
 @media (max-width: 768px) {
-    .profile-img {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .profile-text {
-        padding: 0 10px;
-    }
+  .profile-section {
+    flex-direction: column;
+  }
+  
+  .profile-image-wrapper {
+    max-width: 150px;
+    margin-bottom: 15px;
+  }
+  
+  .profile-text {
+    padding: 0 10px;
+    font-size: 15px;
+  }
+  
+  .books-image-wrapper {
+    max-width: 100%;
+    padding: 0 10px;
+  }
 }
 
 @media (max-width: 480px) {
-    .profile-img {
-        width: 100px;
-        height: 100px;
-    }
-    
-    h1 {
-        font-size: 24px;
-    }
-
-        
+  h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .profile-image-wrapper {
+    max-width: 120px;
+  }
+  
+  .profile-text {
+    font-size: 14px;
+  }
+}
         
         }
     </style>
@@ -356,7 +376,8 @@
         <div id="title-page" class="tab-content active">
             <div class="main-content">
                 <h1>My Portfolio</h1>
-                 <div class="profile-container">
+                  <div class="profile-section">
+      <div class="profile-image-wrapper">
                 <img src="My photo.jpg" alt="My photo"
                  style="width: 200px;
                         height: 200px;
@@ -366,7 +387,8 @@
                         margin-top: -px;
                         margin-bottom:-40px;
                         background: white;">
-						 
+						 </div>
+					
 					
 	 <div class="profile-text">
                    <p style="margin-left: 240px"> <br><br> On this website you can find information about my portfolio project. Click on the appropriate tab to find information about particular language analysis, lesson plan, extra-curriculum activity and different learning projects. </p>
