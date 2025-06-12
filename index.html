@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -239,10 +239,39 @@
     margin: 0;
     padding-left: 20px;
     list-style-position: inside; /* Маркеры внутри потока текста */
-.tul{font-size: 20px;
-}
-
-			
+.resources-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .resource-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            background-color: white;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        .resource-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .resource-title {
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 5px;
+        }
+        .resource-link {
+            color: #27ae60;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .resource-link:hover {
+            text-decoration: underline;
+        }
+        
         
         }
     </style>
@@ -283,10 +312,10 @@
                         margin-bottom:-40px;
                         background: white;">
 						 
-					<div class="tul">
+					
 	
                    <p style="margin-left: 240px"> <br><br> On this website you can find information about my portfolio project. Click on the appropriate tab to find information about particular language analysis, lesson plan, extra-curriculum activity and different learning projects. </p>
-					 </div>
+					
 					<img src="Books.jpg" alt="My photo"
                  style="width: 350px;
                         height: 200px;
@@ -304,12 +333,63 @@
         <!-- Reflective Essay -->
         <div id="reflective-essay" class="tab-content">
             <div class="main-content">
-                <h1>Reflective Essay</h1>
-                <div class="placeholder">
-                    <p>This is where you'll insert your reflective essay</p>
-                </div>
-            </div>
-        </div>
+            
+                <h1>Reflective Essay on My Minor Experience</h1>
+    
+    <div class="intro">
+        <p>As an aspiring English language teacher in international schools, this Minor has equipped me with foundational pedagogical tools while revealing areas for growth. My long-term plan is to work as an English teacher in international schools while also developing as an educational content creator. This dual path appeals to me because it combines classroom interaction with creative freedom, allowing me to impact learners both directly and through digital platforms basing on experiential learning, which aligns with modern communicative approaches.</p>
+    </div>
+
+    <h2>Educational Practices</h2>
+    <p>During the Minor, I learned several effective educational scenarios that will help me achieve my goals. Three key practices I have adopted are:</p>
+    <ol style="margin-top: 0; padding-left: 15px;">
+        <li><span class="highlight">Task-Based Learning</span> from Didactics, where I designed a giving directions role-play observing immediate student engagement;</li>
+        <li><span class="highlight">Scaffolding techniques</span> from Educational Psychology, helping me break down complex grammar into digestible steps during peer teaching;</li>
+        <li><span class="highlight">Peer Feedback Systems from Classroom Assessment</span> where I studied about "delayed feedback" and "correction on the spot" techniques. </li>
+    </ol>
+
+    <h2>Professional Strengths</h2>
+    <p>My strengths include:</p>
+    <ol style="margin-top: 0; padding-left: 15px;">
+        <li><span class="highlight">Cultural sensitivity</span> from volunteering with multilingual learners, allowing me to spot linguistic interference patterns;</li>
+        <li><span class="highlight">Adaptive design of the content</span> with the help of which I can modify the materials for different proficiency levels;</li>
+        <li><span class="highlight">Technology integration</span>, which supports vocabulary and grammar reviews with notably higher retention rates compared to traditional methods.</li>
+    </ol>
+
+    <h2>Professional Development Plan</h2>
+    <table>
+        <tr>
+            <th>Areas to work on</th>
+            <th>What I'm going to do</th>
+            <th>Why this will help</th>
+        </tr>
+        <tr>
+            <td><strong>Technology adaptation</strong></td>
+            <td>I will integrate digital tools (such as interactive whiteboards, educational apps, and AI-based learning platforms) into my teaching methods to enhance engagement and accessibility.</td>
+            <td>I aim to create a more dynamic and accessible learning environment. Technology will help me automate routine tasks like grading and attendance, freeing up time for personalized instruction. Additionally, interactive tools will boost student engagement by catering to diverse learning styles. With data analytics, I can track progress in real time and refine my teaching strategies to better support each student’s growth.</td>
+        </tr>
+        <tr>
+            <td><strong>Student Centered Discourse</strong></td>
+            <td>To cultivate deeper learning, I will design classroom discussions that encourage students to take the lead.</td>
+			<td>Through methods like Socratic seminars, peer debates, and open-ended questioning, I will create a space where students actively engage with ideas, challenge perspectives, and collaborate. This shift from teacher-led to student-driven discourse strengthens critical thinking, communication, and problem-solving skills. By empowering students to guide conversations, I help them develop confidence in expressing their thoughts while fostering a more inclusive and participatory classroom culture.</td>
+          
+        </tr>
+        <tr>
+            <td><strong>Precision Feedback</strong></td>
+            <td>I will use structured rubrics, AI-assisted tools, and targeted verbal/written feedback to give students specific, actionable insights on their work.</td>
+			<td>This approach ensures that students not only understand their strengths and weaknesses but also know exactly how to improve. Consistent and objective feedback fosters a growth mindset, shifting the focus from grades to skill development. By providing specific guidance, I can help students take ownership of their progress and build confidence in their abilities.</td>
+          
+		</tr>
+    </table>
+
+	
+
+    <div class="conclusion">
+        <h2>Conclusion</h2>
+        <p>This Minor has transformed my theoretical knowledge into practical skills, particularly in lesson planning and student engagement. While I have advanced in creating communicative activities, I recognize the need to enhance differentiated instruction techniques - this will be my key professional development focus. My dual expertise in classroom teaching and digital content creation provides a distinctive advantage in today's evolving educational sphere.</p>
+	</div>
+	</div>
+	</div>
         
         <!-- Language Analysis -->
         <div id="lang-analysis" class="tab-content">
@@ -522,7 +602,7 @@
             <tr class="header-row">
                 <th>Vocabulary Item (include stress, phonemic transcription [if necessary] and part of speech</th>
                 <th>Definition</th>
-                <th>Context and Eliciting Question i.e., What context will you use to elicit the language from §s? (story, dialogue, picture, etc) Be specific and include the questions you are going to use for elicitation.</th>
+                <th>Context and Eliciting Question i.e., What context will you use to elicit the language from Ss? (story, dialogue, picture, etc) Be specific and include the questions you are going to use for elicitation.</th>
                 <th>Clarification of Meaning (CCQs, images, etc)</th>
                 <th>Problems and Solutions</th>
             </tr>
@@ -887,6 +967,8 @@ explain the history of this idiom and show that it can be restricted not only to
         </ul>
         
         <p>After modeling, I will ask students to identify these features in the sample dialogue and explain why each is important for clear directions. We will then practice chorally repeating key phrases before students create their own dialogues. This will help ensure everyone understands the expectations before beginning pair work.</p>
+		<a href="https://docs.google.com/document/d/1AifVQjs0GlVZ-ellBQpVSvxn25gWu7F7cNsE_IPL8PI/edit?tab=t.0" class="file-link" target="_blank" style="width: 300px; margin-left:500px">
+					 Click here to look at students' handout.</a>
     </div>
                
             </div>
@@ -900,7 +982,7 @@ explain the history of this idiom and show that it can be restricted not only to
                     <div class="page">
         
         
-        <h1>“Global Fusion Festival: a multicultural language celebration”.</h1>
+        <h1>“Global Fusion Festival: a multicultural language celebration”</h1>
         
         <h2>Description of the educational context</h2>
         <p>The Global Fusion Festival is designed to create an immersive language-learning
@@ -1269,7 +1351,7 @@ explain the history of this idiom and show that it can be restricted not only to
                 <td>Helen, aged 48, is a Manager of Sale Department in an international company. Her native language is Russian and her second language is English. Her favorite pastimes are making puzzles, knitting and growing vegetables.</td>
             </tr>
             <tr>
-                <th>Your student's learning history / previous experience of learning English (or other languages). His/her reasons for learning English. His/her learning preferences (e.g., consider the VAK or the multiple intelligence framework) and preferred activity types.</th>
+                <td>Your student's learning history / previous experience of learning English (or other languages). His/her reasons for learning English. His/her learning preferences (e.g., consider the VAK or the multiple intelligence framework) and preferred activity types.</td>
                 <td>
                     <p>Helen started learning English at school at the age of 10 years old as a compulsory course which was included in the educational program. After finishing school, she continued studying English at the university and also took an additional English course with the private tutor for two years aimed at developing her general English skills as well as practicing English in the area of economy which was quite beneficial for her job.</p>
                     
@@ -1430,9 +1512,9 @@ explain the history of this idiom and show that it can be restricted not only to
                         margin-bottom:20px;
                         background: white;">
                     <br><br><br><br><br>
-                     <a href="https://docs.google.com/document/d/1lWXWMbn4l5LZKzZo9IhdA0xCqhQxXcs1?rtpof=true&usp=drive_fs" class="file-link" target="_blank" style="width: 500px; margin-left:500px">
+                     <a href="https://docs.google.com/document/d/1lWXWMbn4l5LZKzZo9IhdA0xCqhQxXcs1?rtpof=true&usp=drive_fs" class="file-link" target="_blank" style="width: 460px; margin-left:500px">
 					 Click here to know more about Karkar Islands and coconuts.</a>
-                </div>
+                
     </div>
 	 </div>
 	 
@@ -1451,18 +1533,18 @@ explain the history of this idiom and show that it can be restricted not only to
     <p><strong>Lesson focus</strong>: <strong>listening and speaking</strong></p>
 
     <h2>Aims:</h2>
-    <p style="margin-bottom: 1.5px">1) Main:</p>
+    <p style="margin-bottom: 1.5px">1)<strong> Main:</strong></p>
     <blockquote>
         <p style="margin-bottom: 1.5px">We would like to develop people's ability of transforming the world around them into the different feelings and harmony</p>
         <p>Also, we want to motivate peers by showing the beauty of the surroundings and breaking them away from reality. Moreover, our lesson is a great chance to get acquainted with and remember the best works of art, thinking about the topic.</p>
     </blockquote>
 
-    <p style="margin-bottom: 1.5px">2) Subsidiary:</p>
+    <p style="margin-bottom: 1.5px">2)<strong> Subsidiary:</strong></p>
     <blockquote>
         <p>One of the subsidiary aims is "establishing the level of the knowledge on the topic". Another one is "systematizing the type of art, the year and the country".</p>
     </blockquote>
 
-    <p style="margin-bottom: 1.5px">3) Personal:</p>
+    <p style="margin-bottom: 1.5px">3)<strong> Personal:</strong></p>
     <blockquote>
         <p>According to the personal aims we are going to develop respect for the art of your homeland. Furthermore, we see that worldview development is significant as it helps to prevent the society from anxiety.</p>
     </blockquote>
@@ -1479,7 +1561,7 @@ explain the history of this idiom and show that it can be restricted not only to
     <p><span class="mark"><span class="underline">What language do you expect students to know that you are (not) planning to teach?</span></span></p>
     <p><span class="mark">We are teaching our lesson in English only, so it is the only language students should understand.</span></p>
     <p><span class="mark"><span class="underline">What art paintings do you expect students to know that you are (not) planning to teach?</span></span></p>
-    <p><span class="mark">It is great if students are familiar with art, but the aim of the lesson to face with this topic all students even in case they see these paintings at the first time.( We hope the "first" and NOT "the last" in our case)</span></p>
+    <p><span class="mark">It is great if students are familiar with art, but the aim of the lesson to face with this topic all students even in case they see these paintings at the first time.(We hope the "first" and NOT "the last" in our case)</span></p>
     <p><strong>There is no specific answer for this question, the list of famous artworks with which students are supposed to be familiar with.</strong></p>
     <p><span class="mark"><span class="underline">What language items have students looked at in previous classes that are relevant to your aims?</span></span></p>
     <p><span class="mark">The previous peer-teaching lesson our colleagues presented was about anxiety.</span></p>
@@ -1488,9 +1570,40 @@ explain the history of this idiom and show that it can be restricted not only to
     <h2><span class="mark">Assumption</span>:</h2>
     <p><span class="mark">Students' interest/general knowledge in relation to the material/context?</span></p>
     
-    <p><span class="mark">We think that students have faced with art at schools: there were drawing lesson(art) and world artistic cultures( in Russian: "МХК"- Мировая художественная культура) where they were taught paintings.</span></p>
+    <p><span class="mark">We think that students have faced with art at schools: there were drawing lesson (art) and world artistic cultures(in Russian: "МХК"- Мировая художественная культура) where they were taught paintings.</span></p>
 
-    <h2><strong>Sources of materials:</strong></h2>
+    <h2>Sources of materials:</h2>
+	 <div class="resources-container">
+        <div class="resource-item">
+            <div class="resource-title">Google Arts & Culture:</div>
+            <a href="https://artsandculture.google.com/" class="resource-link" target="_blank">https://artsandculture.google.com/</a>
+            
+        
+        <div class="resource-item">
+            <div class="resource-title">Twee AI for Teachers:</div>
+            <a href="https://twee.com/" class="resource-link" target="_blank">https://twee.com/</a>
+            
+        
+        <div class="resource-item">
+            <div class="resource-title">Smarthistory:</div>
+            <a href="https://smarthistory.org/" class="resource-link" target="_blank">https://smarthistory.org/</a>
+            
+        
+        <div class="resource-item">
+            <div class="resource-title">WikiArt Visual Encyclopedia:</div>
+            <a href="https://sugggest.com/software/wikiart" class="resource-link" target="_blank">https://sugggest.com/software/wikiart</a>
+           
+        
+        <div class="resource-item">
+            <div class="resource-title">Khan Academy Art History:</div>
+            <a href="https://www.khanacademy.org/humanities/art-history" class="resource-link" target="_blank">https://www.khanacademy.org/humanities/art-history</a>
+           
+        
+        <div class="resource-item">
+            <div class="resource-title">DALL-E by OpenAI:</div>
+            <a href="https://openai.com/dall-e" class="resource-link" target="_blank">https://openai.com/dall-e</a>
+           
+    </div>
 
     <h2><span class="mark">Possible problems:</span></h2>
     <p><span class="mark">Here we have tried to predict which problems students may face during the online lesson. It will help us to avoid difficulties during our peer-teaching and we will take into account these problems in our stages to minimize their influence.</span></p>
@@ -1499,7 +1612,7 @@ explain the history of this idiom and show that it can be restricted not only to
         <li><span class="mark">Poor internet connection: Students may face difficulties in accessing the online lesson due to slow or unreliable internet connections.</span></li>
         <li><span class="mark">Technical glitches: Students may encounter issues with the online platform, such as audio or video problems, which can disrupt the learning experience.</span></li>
         <li><span class="mark">Incompatible devices and no access to the lesson: Some students may not have access to devices that are compatible with the online platform, making it challenging for them to participate fully.</span></li>
-        <li><span class="mark">Lack of technical skills: Students who are not familiar with online tools and platforms may struggle to navigate through the lesson or use the required features effectively. For example, can not find some options( hands up and so on).</span></li>
+        <li><span class="mark">Lack of technical skills: Students who are not familiar with online tools and platforms may struggle to navigate through the lesson or use the required features effectively. For example, can not find some options(hands up and so on).</span></li>
     </ul>
 
     <p style="margin-top: 0 padding-left: 5px"><br>1) <span class="mark">Engagement and Participation Problems:</span></p>
@@ -1574,10 +1687,14 @@ explain the history of this idiom and show that it can be restricted not only to
             <td><span class="mark">Technical problems only, because the task is not hard. It is involving and relaxing.</span></td>
         </tr>
     </table>
-
+</div>
 	 </div>
 	 </div>
-    
+	 </div>
+	 </div>
+	 </div>
+	 </div>
+	 </div>
     <footer>
         <p>&copy; 2025 Academic Portfolio. All rights reserved.</p>
     </footer>
